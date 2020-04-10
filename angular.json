@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "HW2"
+    }
+  },
+  "defaultProject": "HW2",
+  "cli": {
+    "analytics": false
+  }
 }
