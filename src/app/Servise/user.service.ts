@@ -9,7 +9,7 @@ import {API} from '../Constanta/constants';
 })
 export class UserService {
 
-  constructor( private httpClient:HttpClient) {
+  constructor( private httpClient: HttpClient) {
   }
   getAllData(): Observable<User[]>{
 return  this.httpClient.get<User[]>(API + 'users');

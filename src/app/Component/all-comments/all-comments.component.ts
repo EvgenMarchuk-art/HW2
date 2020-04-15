@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {CommentModel} from '../../Models/CommentModel';
 
 
 @Component({
@@ -8,9 +9,18 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./all-comments.component.css']
 })
 export class AllCommentsComponent implements OnInit {
-  comments: Comment[];
+
+  comments: CommentModel[];
+
   constructor(private activatedRoute: ActivatedRoute) {
-    this.comments = this.activatedRoute.snapshot.data.list;
+    // all comments from resolve
+    console.log('list', this.activatedRoute.snapshot.data.list);
+
+    // comment of single postId
+    this.activatedRoute.data.subscribe(value => {
+      this.comments = value.comments;
+    });
+
 
   }
 

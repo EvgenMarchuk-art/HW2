@@ -10,9 +10,15 @@ import {CommentModel} from '../Models/CommentModel';
 })
 export class CommentService {
 
+
+
   constructor( private httpClient: HttpClient) {
   }
   getAllData(): Observable<CommentModel[]>{
     return  this.httpClient.get<CommentModel[]>(API + 'comments');
+  }
+
+  getAllCommentsOfPost(id): Observable<CommentModel[]>{
+    return  this.httpClient.get<CommentModel[]>(API + `comments?postId=${id}`);
   }
 }
